@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Uni Resto
 
-## Getting Started
+Site vitrine pour **Uni Resto**, un restaurant proposant de bons plats et de bonnes boissons pour une vie plus saine. Le site présente le restaurant, son menu, ses spécialités et permet aux visiteurs de le contacter.
 
-First, run the development server:
+Développé avec [Next.js](https://nextjs.org) (App Router) et [Tailwind CSS](https://tailwindcss.com), avec des composants [shadcn/ui](https://ui.shadcn.com).
+
+## Pages
+
+- **Accueil** (`/`) — hero, présentation du restaurant, catégories populaires, galerie clients, plats populaires, avis clients et bandeau d'appel à l'action.
+- **Menu** (`/menu`) — menu complet filtrable par catégorie avec recherche, activités et module de réservation d'événements.
+- **Notre restaurant** (`/specialites`) — présentation des espaces (salle principale, tables familiales, salon privé, cuisine ouverte), du bar signature, de la carte et de l'équipe.
+- **Contact** (`/contact`) — coordonnées (adresse, téléphone, e-mail, horaires) et formulaire de contact avec validation et envoi via server action.
+
+## Stack technique
+
+- [Next.js 16](https://nextjs.org) / React 19 / TypeScript
+- [Tailwind CSS 4](https://tailwindcss.com) + [shadcn/ui](https://ui.shadcn.com) (composants Radix/Base UI)
+- [Zod](https://zod.dev) pour la validation des formulaires
+- [Embla Carousel](https://www.embla-carousel.com) pour les carrousels
+- [Sonner](https://sonner.emilkowal.ski) pour les notifications
+- [Lucide](https://lucide.dev) pour les icônes
+
+## Démarrer le projet
+
+Installer les dépendances puis lancer le serveur de développement :
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ouvrir [http://localhost:3000](http://localhost:3000) pour voir le résultat.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts disponibles
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `npm run dev` — lance le serveur de développement
+- `npm run build` — build de production
+- `npm run start` — démarre le serveur en mode production
+- `npm run lint` — vérifie le code avec ESLint
 
-## Learn More
+## Structure du projet
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+app/                Routes (App Router) : accueil, menu, specialites, contact
+components/
+  layout/           Header, footer, navigation
+  sections/         Sections de la page d'accueil
+  restaurant/        Sections de la page "Notre restaurant"
+  menu/             Navigateur de menu, activités, réservation d'événements
+  contact/          Formulaire de contact
+  ui/               Composants shadcn/ui
+lib/
+  data/             Données du menu (catégories, plats)
+  validations/      Schémas de validation Zod
+```
